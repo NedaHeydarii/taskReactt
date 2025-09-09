@@ -28,19 +28,10 @@ const DisplayForm = () => {
     setFormValue((feildvalue) => ({ ...feildvalue, [name]: value }));
   };
 
-    useEffect(()=>{
-          if (theTab) {
-    
-      const formValue = {};
-      theTab.fields.forEach((f) => (formValue[f.name] = ''));
-      
-    //   setFormValue((feildvalue) => ({ ...feildvalue, ...formValue }));
-    }
-    })
   
     const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Submitted for tab', theTab?.name, formValue);
+    console.log('Submitted for tab', theTab?.name);
   };
   
 
