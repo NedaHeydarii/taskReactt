@@ -1,0 +1,28 @@
+{
+  "tab": [
+    {
+      "id": 1,
+      "name": " personalInfo",
+      "fields": [
+        { "name": "firstName", "label": "name...", "type": "text" },
+        { "name": "lastName", "label": "lastName... ", "type": "text" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Info Part2",
+      "fields": [
+        { "name": "email", "label": "email", "type": "email" },
+        { "name": "phone", "label": "telephon...", "type": "tel" }
+      ]
+    },
+    {
+      "id": 3,
+      "name": " Info Part3",
+      "fields": [
+        { "name": "company", "label": "company", "type": "text" },
+        { "name": "role", "label": "role", "type": "text" }
+      ]
+    }
+  ]
+}

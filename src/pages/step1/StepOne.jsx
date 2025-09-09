@@ -1,6 +1,6 @@
 import { Field, Formik } from 'formik'
 import React, { Fragment, useState } from 'react'
-import { Form } from 'react-router-dom'
+import { Form } from 'formik';
 import * as yup from "yup";
 import { AddFeildButton } from '../../components/addButton/AddFeildButton'
 
@@ -31,7 +31,7 @@ const StepOne = () => {
           <Form style={{display:"flex", flexFlow:"column",gap:"5px", width:"500px", }}>
               <Field  name="name" placeholder="your username..."/>
               <Field  name="gender"  placeholder="female or male...."/>
-              <button type='submit' onClick={onSubmit} > Submit</button>
+              <button type='submit' > Submit</button>
               <AddFeildButton />
           </Form>
         
