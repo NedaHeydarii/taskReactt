@@ -8,9 +8,7 @@ const StepOne = () => {
   //add one feild
   const[addFeild , setAddFeild]=useState()
 
-  const handleAddFeild = ()=>{
-    setAddFeild(el => el +1)
-  }
+ 
 
 
 
@@ -34,7 +32,7 @@ const StepOne = () => {
               <Field  name="name" placeholder="your username..."/>
               <Field  name="gender"  placeholder="female or male...."/>
               <button type='submit' onClick={onSubmit} > Submit</button>
-              <AddFeildButton onClick={handleAddFeild}/>
+              <AddFeildButton />
           </Form>
         
         </Formik>
