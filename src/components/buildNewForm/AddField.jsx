@@ -29,7 +29,11 @@ const AddField = () => {
                       type={f.type}
                       value={values[f.name] || ''}        
                       placeholder={f.label}
-                      onChange={(v)=> setValues(v.target.value)}
+                      onChange={(e) =>
+                setValues((prev) => ({
+                  ...prev,
+                  [f.name]: e.target.value,
+                }))}
                     />
                 </div>  
             ))}
