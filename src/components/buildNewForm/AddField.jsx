@@ -3,24 +3,21 @@ import React, { useState } from 'react'
 const AddField = () => {
 
     const[field , setField]=useState([])
-     const [values, setValues] = useState({ name: '' })
+     const [values, setValues] = useState({})
 
-      const addField = () => {
+    const addField = () => {
     const fieldsNew = field.length + 1;
     const newField = { name: `field${fieldsNew}`, label: `field${fieldsNew}`, type: 'text' };
     setField((field) => [...field, newField]);
-    setValues((v) => ({ ...v, [newField.name]: '' }));
-  }
-
- const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues((v) => ({ ...v, [name]: value }));
+    setValues((v) => ({ ...v, [newField.name]: '' }))
   }
 
   const onSubmit = (e)=>{
     e.preventDefault()
-     console.log('Submitted values:', values);
+     console.log('Submitted values:', values)
   }
+
+
   return (
     <div>
         <form onSubmit={onSubmit}>
@@ -30,9 +27,9 @@ const AddField = () => {
                     <input
                       name={f.name}
                       type={f.type}
-                      value={values[f.name] || ''}
-                      onChange={handleChange}
+                      value={values[f.name] || ''}        
                       placeholder={f.label}
+                      onChange={(v)=> setValues(v.target.value)}
                     />
                 </div>  
             ))}
