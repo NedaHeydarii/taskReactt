@@ -20,7 +20,6 @@ function App() {
       {/* <Outlet/> */}
      </main>
      <DisplayForm/>
-       <AddField/>
     </>
   )
 }

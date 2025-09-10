@@ -42,7 +42,7 @@ const DisplayForm = () => {
     if (!TabName) return;
 
    
-    const newTab = {  name: TabName, fields: {} };
+    const newTab = {  name: TabName};
 
     setTab(prev => [...prev, newTab]);
     setActiveId(newTab);
@@ -71,8 +71,9 @@ const DisplayForm = () => {
 
     {theTab &&(
         <form onSubmit={handleSubmit}>
-            { theTab.fields.map((field)=>(
+            {Array.isArray(theTab.fields) &&  theTab?.fields.map((field)=>(
                 <div>
+                    
                     <label>{field.label}</label>
                     <input
                       name={field.name}
@@ -80,11 +81,14 @@ const DisplayForm = () => {
                       placeholder={field.label}
                       value={formvalue[field.name] || ''}
                       onChange={handleFieldChange}
+                      
                     />
-                
+              
                </div>
             ))}
+              <AddField/>
             <button type='submit'>submit</button>
+
         </form>
     )}
     </div>
