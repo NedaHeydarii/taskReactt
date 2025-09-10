@@ -13,6 +13,7 @@ const DisplayForm = () => {
   
 
 
+    
     useEffect(()=>{
         setTab(DataTab.tab)
         console.log(tab)

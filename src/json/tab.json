@@ -5,7 +5,8 @@
       "name": " personalInfo",
       "fields": [
         { "name": "firstName", "label": "name...", "type": "text" },
-        { "name": "lastName", "label": "lastName... ", "type": "text" }
+        { "name": "lastName", "label": "lastName... ", "type": "text" },
+        { "name": "code", "label": "code... ", "type": "password" }
       ]
     },
     {
