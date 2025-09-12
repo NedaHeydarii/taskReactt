@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
+import DataTab from "../../json/tab.json"
+
 
 const AddField = () => {
 
     const[field , setField]=useState([])
      const [values, setValues] = useState({})
+   
 
     const addField = () => {
     const fieldsNew = field.length + 1;
-    const newField = { name: `field${fieldsNew}`, label: `field${fieldsNew}`, type: 'text' };
-    setField((field) => [...field, newField]);
+    const newField = { name: `field${fieldsNew}`, label: `field${fieldsNew}`, type: 'text' }
+     setField((field) => [...field, newField])
     setValues((v) => ({ ...v, [newField.name]: '' }))
   }
+ 
+ 
 
   const onSubmit = (e)=>{
     e.preventDefault()
@@ -21,7 +26,7 @@ const AddField = () => {
   return (
     <div>
         <form onSubmit={onSubmit}>
-            {field.map((f,fieldsNew)=>(
+            {field?.map((f,fieldsNew)=>(
                 <div key={fieldsNew}>
                     <label>{f.label}</label>
                     <input
