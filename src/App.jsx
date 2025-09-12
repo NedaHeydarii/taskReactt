@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import { Outlet, Route, Router, Routes } from 'react-router-dom'
 import { DisplayForm } from './components/displayForm/DisplayForm'
 import { AddField } from './components/buildNewForm/AddField'
