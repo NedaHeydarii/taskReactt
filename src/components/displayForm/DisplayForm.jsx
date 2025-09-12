@@ -23,10 +23,10 @@ const DisplayForm = () => {
 
      const handleFieldChange = (e) => {
     const { name, value } = e.target;
-    setFormValue((feildvalue) => ({ ...feildvalue, [name]: value }));
+    setFormValue((feildvalue) => ({ ...feildvalue, [name]: value }))
   };
 
-  
+  ///////////////////////////////////////////////////////////
     const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submitted for tab', theTab?.name)
@@ -34,32 +34,32 @@ const DisplayForm = () => {
     const theFields = (theTab?.fields ?? [])
     const allFilled = theFields.every(f => (formvalue[f.name] ?? '')!== '')
      if (allFilled) { 
-    const next = tab[nextTab + 1];
-    if (next) setActiveTab(next.id);
-    else alert('All TABSSS ARE completed');
+    const next = tab[nextTab + 1]
+    if (next) setActiveTab(next.id)
+    else alert('All TABSSS ARE completed')
   } else {
-    alert('FILL THE FEILDSSSS ');
+    alert('FILL THE FEILDSSSS ')
   }
   }
   
-/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 
   const handleaddTab = () => {
-    const TabName = addTab.trim();
-    if (!TabName) return;
+    const TabName = addTab.trim()
+    if (!TabName) return
    
 let tabCounter = 0
-const getId = ()  => `${Date.now()}_${++tabCounter}`;
+const getId = ()  => `${Date.now()}_${++tabCounter}`
 
 
    
-   const newTab = {  name: TabName ,fields: [] , id:getId()};
+   const newTab = {  name: TabName ,fields: [] , id:getId()}
 
-    setTab(prev => [...prev, newTab]);
+    setTab(prev => [...prev, newTab])
     setActiveId(newTab.id)
     setAddTab('')
   }
-  /////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////
   const addFieldToActiveTab = (e) => {
       e.preventDefault()
    const currentTab = (tab) ? tab.find(t => t.id === activeTab) :null
