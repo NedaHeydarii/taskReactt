@@ -4,16 +4,22 @@ import React, { useEffect, useState } from 'react'
 const NewStep = ({onStepAdded}) => {
 
   const [showModal , setShowModal]=useState(false)
-  const[newStep , setNewStep]=useState({name:""})
+  const[stepNew , setStepNew]=useState({name:""})
   
 
   const addNewStep = async()=>{
-      const newStepName = { name: newStep  };
-     const res = await axios.post("https://68c827615d8d9f5147347bbd.mockapi.io/steps" , newStepName)
+       if (!stepNew.trim()) return;
+    
+    const newSteps = {
+      name: stepNew,
+    
+    }
+      // const newStepName = { name: newStep  }
+     const res = await axios.post("https://68c827615d8d9f5147347bbd.mockapi.io/steps" , newSteps)
 
-   onStepAdded(response.data)
+   onStepAdded(res.data)
      setShowModal(false)
-        setNewStep("")
+        setStepNew("")
  
      
   }
@@ -32,8 +38,8 @@ const NewStep = ({onStepAdded}) => {
               <h3>add new step</h3>
               <input
               type="text"
-              value={newStep}
-              onChange={(e) => setNewStep(e.target.value)}
+              value={stepNew}
+              onChange={(e) => setStepNew(e.target.value)}
               placeholder="Enter step name"
               />
 
@@ -45,7 +51,7 @@ const NewStep = ({onStepAdded}) => {
                 Cancel
               </button>
                  <button onClick={addNewStep}>
-                Add
+                create
               </button>
             </div>
             

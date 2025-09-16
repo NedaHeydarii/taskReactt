@@ -35,11 +35,10 @@ const StepCard = () => {
   }
   return (
     <div > 
-        {stepItem.map((step)=>(
+        {Array.isArray(stepItem) &&stepItem.map((step)=>(
       
                 <button key={step.id}  style={{ background : step.id== activeStep ? "blue" :"#1a1a1a", marginInline:"10px"}}  onClick={()=>selectStep(step.id)}>
-                    {step.name}
-         
+                   {step.name}
                 </button>
         ))}
         <NewStep stepId={activeStep}  onStepAdded={handleStepAdded}/>
