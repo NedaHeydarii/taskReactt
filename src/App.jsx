@@ -1,14 +1,22 @@
 import { useState } from 'react'
-import { Outlet, Route, Router, Routes } from 'react-router-dom'
+import { Link, Outlet, Route, Router, Routes } from 'react-router-dom'
 import { DisplayForm } from './components/displayForm/DisplayForm'
-import { AddField } from './components/buildNewForm/AddField'
+import { StepCard } from './components/stepCard/StepCard'
+import { FeildCard } from './components/fieldCard/FeildCard'
+
  
 
 function App() {
  
   return (
     <>
-     <DisplayForm/>    
+      {/* <DisplayForm/>     */}
+    <StepCard/>
+   <main>
+    <Outlet/>
+   </main>
+   
+   
     </>
   )
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import DataTab from "../../json/tab.json"
+import axios from 'axios'
 
 const DisplayForm = () => {
 
@@ -8,6 +9,7 @@ const DisplayForm = () => {
     const[formvalue , setFormValue] = useState({})
     const[addTab , setAddTab]= useState('')
     const [activeId, setActiveId] = useState(DataTab.tab[0]?.id || null);
+    const [showForm , setShowForm ]=useState()
   
     
     useEffect(()=>{
@@ -83,7 +85,19 @@ const getId = ()  => `${Date.now()}_${++tabCounter}`
     [newField.name]: '',
   }))
   }
- 
+ //////////////////////////////////////////////////////////////////
+ const getApi = async()=>{
+   const res = await axios.get("https://68bc2d350f2491613ede4550.mockapi.io/books") 
+    console.log(res.data)
+
+  setShowForm(res.data)
+  
+ }
+ useEffect(()=>{
+     
+      getApi();  
+    
+ },[])
   
   return (
     <div>
@@ -106,6 +120,7 @@ const getId = ()  => `${Date.now()}_${++tabCounter}`
               <button onClick={handleaddTab}>addNew</button>
         
        </div>
+     
 
     {theTab &&(
         <form  style={{border:"2px solid blue", padding:"20px" , width:"450px" , background:" rgba(0, 123, 255, 0.08)"}}>

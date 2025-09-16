@@ -2,9 +2,9 @@
   "tab": [
     {
       "id": 1,
-      "name": " personalInfo",
+      "name": " DisplayForm",
       "fields": [
-        { "name": "firstName...", "label": "userName:", "type": "text" , "required":true },
+        { "name": "firstName...", "label": "userName:", "type": "text" },
         { "name": "lastName...", "label": "lastName: ", "type": "text" },
         { "name": "code...", "label": "userCode: ", "type": "password" }
       ]
@@ -24,6 +24,6 @@
         { "name": "company...", "label": "company:", "type": "text" },
         { "name": "role...", "label": "yourrole:", "type": "text" }
       ]
-    }
+    } 
   ]
 }
