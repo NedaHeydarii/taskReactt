@@ -25,12 +25,10 @@ const FeildCard = ({stepId}) => {
 
     const handleDeletFeild = async(feildId , stepId) => {
      const res =  await api.delete(`/steps/${stepId}/fieldsData/${feildId}`);
-      setDeleteFeild(feildItem.filter(feild => feild.id !== feildId));
-   console.log(res)
+      setFeildItem(feildItem.filter(feild => feild.id !== feildId));
+   console.log(handleDeletFeild)
   }
-  useEffect(()=>{
-handleDeletFeild()
-  })
+
 
   return (
     <div  > 
