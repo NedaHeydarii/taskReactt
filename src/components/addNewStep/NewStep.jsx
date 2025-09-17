@@ -1,21 +1,23 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+ import {api} from "../../api/Interceptor"
+
 
 const NewStep = ({onStepAdded}) => {
 
   const [showModal , setShowModal]=useState(false)
-  const[stepNew , setStepNew]=useState({name:""})
+  const[stepNew , setStepNew]=useState("")
   
 
   const addNewStep = async()=>{
        if (!stepNew.trim()) return;
     
     const newSteps = {
-      name: stepNew,
+      name: stepNew
     
     }
-      // const newStepName = { name: newStep  }
-     const res = await axios.post("https://68c827615d8d9f5147347bbd.mockapi.io/steps" , newSteps)
+    
+     const res = await api.post("/steps" , newSteps)
 
    onStepAdded(res.data)
      setShowModal(false)
@@ -25,16 +27,16 @@ const NewStep = ({onStepAdded}) => {
   }
     
   return (
-    <div>
-        <button onClick={()=>setShowModal(true)}>add new step</button>
+    <div className='flex mt-4 mb-4'>
+        <button  onClick={()=>setShowModal(true)}>add new step</button>
 
         {showModal &&(
-          <div style={{position:"fixed" ,   top: 0,  left: 0, right: 0, bottom: 0,backgroundColor: "rgba(0,0,0,0.5)",
+          <div style={{position:"fixed" ,   top: 0,  left: 0, right: 0, bottom: 0,background:"black",
           display: "flex",
           justifyContent: "center",
           alignItems: "center"}}>
 
-            <div style={{  backgroundColor: "white", padding: "20px",  borderRadius: "10px",  width: "300px"}}>
+            <div style={{  border:"2px solid blue", padding: "20px",  borderRadius: "10px",  width: "300px"}}>
               <h3>add new step</h3>
               <input
               type="text"
