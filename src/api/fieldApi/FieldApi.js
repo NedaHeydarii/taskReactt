@@ -33,6 +33,7 @@ export const updateField = async (field) => {
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'خطا در بروزرسانی فیلد')
+       console.log(error)
   }
 }
 
@@ -42,5 +43,6 @@ export const deleteField = async ({fieldId, stepId}) => {
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'خطا در حذف فیلد')
+    console.log(error)
   }
 }

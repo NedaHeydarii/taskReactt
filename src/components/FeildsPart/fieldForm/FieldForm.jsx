@@ -15,7 +15,7 @@ const FieldForm = ({ stepId, field }) => {
     mutationFn: createField,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['fields', stepId] });
-    //   reset();
+  
     },
     onError: (error) => {
       console.error('Error creating field:', error);
