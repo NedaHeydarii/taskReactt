@@ -36,9 +36,9 @@ export const updateField = async (field) => {
   }
 }
 
-export const deleteField = async (id ) => {
+export const deleteField = async ({fieldId, stepId}) => {
   try {
-    const response = await api.delete(`/steps/${field.stepId}/feildsData/${field.id}}`)
+    const response = await api.delete(`/steps/${stepId}/feildsData/${fieldId}}`)
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'خطا در حذف فیلد')

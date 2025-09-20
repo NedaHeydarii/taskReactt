@@ -17,7 +17,9 @@ const FieldsTable = ({ stepId }) => {
   })
   
   const deleteMutation = useMutation({
-    mutationFn: deleteField,
+    mutationFn: (fieldId)=>{
+      return deleteField({stepId,fieldId})
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['fields', stepId] });
     },
@@ -26,9 +28,9 @@ const FieldsTable = ({ stepId }) => {
     }
   })
 
-  const handleDelete = (id) => {
+  const handleDelete = (fieldId) => {
     if (window.confirm('do you want to delete?')) {
-      deleteMutation.mutate(id);
+      deleteMutation.mutate({fieldId })
     }
   }
 
