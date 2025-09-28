@@ -28,7 +28,7 @@ const StepsManagement = () => {
 
   const handleDelete = (id) => {
     if (window.confirm('do you want to delete? ')) {
-      deleteMutation.mutate(id);
+      deleteMutation.mutate(id)
     }
   }
 

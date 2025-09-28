@@ -22,9 +22,11 @@ const FieldsTable = ({ stepId }) => {
       queryClient.invalidateQueries({ queryKey: ['fields', stepId] });
     },
     onError: (error) => {
-      console.error('Error deleting field:', error);
+      console.error('Error deleting field:', error)
+      console.log(error)
     }
   })
+  
 
   const handleDelete = (id) => {
     if (window.confirm('do you want to delete?')) {
